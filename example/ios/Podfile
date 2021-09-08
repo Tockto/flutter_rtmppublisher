@@ -28,7 +28,7 @@ require File.expand_path(File.join('packages', 'flutter_tools', 'bin', 'podhelpe
 flutter_ios_podfile_setup
 
 def import_pods
-  pod 'HaishinKit',  :path => './../../HaishinKit.swift'
+  pod 'HaishinKit',  :git => 'https://github.com/Tockto/HaishinKit.swift'
 end
 
 target 'Runner' do
