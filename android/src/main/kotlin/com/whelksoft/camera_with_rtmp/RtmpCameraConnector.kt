@@ -253,13 +253,15 @@ class RtmpCameraConnector(val context: Context, val useOpenGL: Boolean, val isPo
      * Stop stream started with @startStream.
      */
     fun stopStream() {
-        isStreaming = false
-        stopStreamRtp()
-        if (!isRecording) {
-            microphoneManager!!.stop()
-            videoEncoder!!.stop()
-            audioEncoder!!.stop()
-            glInterface.stop()
+        if(isStreaming == true) {
+            isStreaming = false
+            stopStreamRtp()
+            if (!isRecording) {
+                microphoneManager!!.stop()
+                videoEncoder!!.stop()
+                audioEncoder!!.stop()
+                glInterface.stop()
+            }
         }
     }
 
