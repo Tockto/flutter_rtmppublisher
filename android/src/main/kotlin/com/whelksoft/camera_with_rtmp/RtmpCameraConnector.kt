@@ -440,7 +440,7 @@ class RtmpCameraConnector(val context: Context, val useOpenGL: Boolean, val isPo
         if (isRecording && !pausedRecording) recordController.recordAudio(aacBuffer, info)
     }
 
-    override fun onSpsPpsVps(sps: ByteBuffer, pps: ByteBuffer, vps: ByteBuffer) {
+    override fun onSpsPpsVps(sps: ByteBuffer, pps: ByteBuffer, vps: ByteBuffer?) {
         if (isStreaming && !pausedStreaming) onSpsPpsVpsRtp(sps, pps, vps)
     }
 
@@ -510,7 +510,7 @@ class RtmpCameraConnector(val context: Context, val useOpenGL: Boolean, val isPo
     }
 
     override fun onConnectionStartedRtmp(rtmpUrl: String) {
-        TODO("Not yet implemented")
+        connectChecker.onConnectionStartedRtmp(rtmpUrl)
     }
 
     companion object {
